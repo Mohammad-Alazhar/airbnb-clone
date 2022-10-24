@@ -1,11 +1,25 @@
-import logo from './assets/Vector.png'
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Card from './components/Card'
+import data from './data'
 
 function App() {
+  const cards = data.map(card => {
+    return(
+      <Card
+      key={card.id}
+      {...card}
+      />
+      )
+  })
+  
   return (
     <div>
-      <div className="h-[70px] w-[550px] shadow-[0px_2.98256px_7.4564px_rgba(0,0,0,0.1)]">
-        <img src={logo} alt="" />
-      </div>
+      <Navbar />
+      <Hero />
+      <section className="flex">
+        {cards}
+      </section> 
     </div>
   );
 }
